@@ -1,0 +1,32 @@
+\name{rmduplicates}
+\alias{rmduplicates}
+\title{
+}
+\description{
+}
+\usage{
+rmduplicates(data, noid = "platform", date = "dateloc")
+}
+\arguments{
+  \item{data}{
+}
+  \item{noid}{
+}
+  \item{date}{
+}
+}
+\details{
+}
+\value{
+}
+\references{
+}
+\author{
+}
+\note{
+}
+
+\seealso{
+}
+\examples{
+}

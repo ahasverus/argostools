@@ -1,0 +1,36 @@
+\name{tracklen}
+\alias{tracklen}
+\title{
+}
+\description{
+}
+\usage{
+tracklen(data, id, noid = "noid", date = "dateloc", unit = "days")
+}
+\arguments{
+  \item{data}{
+}
+  \item{id}{
+}
+  \item{noid}{
+}
+  \item{date}{
+}
+  \item{unit}{
+}
+}
+\details{
+}
+\value{
+}
+\references{
+}
+\author{
+}
+\note{
+}
+
+\seealso{
+}
+\examples{
+}

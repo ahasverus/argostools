@@ -1,0 +1,36 @@
+\name{readargos}
+\alias{readargos}
+\title{
+}
+\description{
+}
+\usage{
+readargos(file, sep = "\t", dec = ".", header = TRUE, ...)
+}
+\arguments{
+  \item{file}{
+}
+  \item{sep}{
+}
+  \item{dec}{
+}
+  \item{header}{
+}
+  \item{\dots}{
+}
+}
+\details{
+}
+\value{
+}
+\references{
+}
+\author{
+}
+\note{
+}
+
+\seealso{
+}
+\examples{
+}

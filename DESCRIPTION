@@ -1,0 +1,10 @@
+Package: argostools
+Type: Package
+Title: Creating and managing an SQL framework for Argos locations data
+Version: 1.1
+Date: 2015-04-14
+Author: Nicolas Casajus
+Maintainer: Nicolas Casajus <nicolas.casajus@gmail.com>
+Description: This package provides functions to import (xls(x), txt, csv and diag extensions) and format Argos data (coordinates and date fields). Some filters are also available (spatial, temporal and speed-based filters) to clean up locations. After compilation, data can be passed under an SQL structure using several functions (database creation, relation update, extraction queries, etc.)
+License: GPL-2
+Depends: DBI, RPostgreSQL, XLConnect, adehabitatHR, dismo, sp, raster, rgdal, rJava

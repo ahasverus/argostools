@@ -1,0 +1,34 @@
+\name{pgupdatetb}
+\alias{pgupdatetb}
+\title{
+}
+\description{
+}
+\usage{
+pgupdatetb(data = NULL, dbname, tbname, fields)
+}
+\arguments{
+  \item{data}{
+}
+  \item{dbname}{
+}
+  \item{tbname}{
+}
+  \item{fields}{
+}
+}
+\details{
+}
+\value{
+}
+\references{
+}
+\author{
+}
+\note{
+}
+
+\seealso{
+}
+\examples{
+}

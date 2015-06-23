@@ -1,0 +1,38 @@
+\name{pgupdateinfos}
+\alias{pgupdateinfos}
+\title{
+}
+\description{
+}
+\usage{
+pgupdateinfos(dbname, tbname, field, value, key, id)
+}
+\arguments{
+  \item{dbname}{
+}
+  \item{tbname}{
+}
+  \item{field}{
+}
+  \item{value}{
+}
+  \item{key}{
+}
+  \item{id}{
+}
+}
+\details{
+}
+\value{
+}
+\references{
+}
+\author{
+}
+\note{
+}
+
+\seealso{
+}
+\examples{
+}

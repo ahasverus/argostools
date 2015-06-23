@@ -1,0 +1,36 @@
+\name{spatialbuffer}
+\alias{spatialbuffer}
+\title{
+}
+\description{
+}
+\usage{
+spatialbuffer(data, xlim, ylim, lat = "latitude", long = "longitude")
+}
+\arguments{
+  \item{data}{
+}
+  \item{xlim}{
+}
+  \item{ylim}{
+}
+  \item{lat}{
+}
+  \item{long}{
+}
+}
+\details{
+}
+\value{
+}
+\references{
+}
+\author{
+}
+\note{
+}
+
+\seealso{
+}
+\examples{
+}

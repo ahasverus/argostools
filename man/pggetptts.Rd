@@ -1,0 +1,30 @@
+\name{pggetptts}
+\alias{pggetptts}
+\title{
+}
+\description{
+}
+\usage{
+pggetptts(dbname, noid = NULL)
+}
+\arguments{
+  \item{dbname}{
+}
+  \item{noid}{
+}
+}
+\details{
+}
+\value{
+}
+\references{
+}
+\author{
+}
+\note{
+}
+
+\seealso{
+}
+\examples{
+}

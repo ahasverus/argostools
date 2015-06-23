@@ -1,0 +1,30 @@
+\name{pgrmduplicates}
+\alias{pgrmduplicates}
+\title{
+}
+\description{
+}
+\usage{
+pgrmduplicates(dbname, tbname)
+}
+\arguments{
+  \item{dbname}{
+}
+  \item{tbname}{
+}
+}
+\details{
+}
+\value{
+}
+\references{
+}
+\author{
+}
+\note{
+}
+
+\seealso{
+}
+\examples{
+}
