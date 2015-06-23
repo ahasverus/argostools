@@ -1,38 +1,28 @@
 \name{pgupdateinfos}
 \alias{pgupdateinfos}
-\title{
-}
-\description{
-}
+\title{Title}
+\description{Description}
+
 \usage{
 pgupdateinfos(dbname, tbname, field, value, key, id)
 }
+
 \arguments{
-  \item{dbname}{
-}
-  \item{tbname}{
-}
-  \item{field}{
-}
-  \item{value}{
-}
-  \item{key}{
-}
-  \item{id}{
-}
-}
-\details{
-}
-\value{
-}
-\references{
-}
-\author{
-}
-\note{
+  \item{dbname}{}
+  \item{tbname}{}
+  \item{field}{}
+  \item{value}{}
+  \item{key}{}
+  \item{id}{}
 }
 
-\seealso{
-}
+\value{}
+
+\author{Nicolas Casajus}
+
+\seealso{}
+
 \examples{
+###
+### See tutorial for a complete example of usage of this package.
 }

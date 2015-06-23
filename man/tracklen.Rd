@@ -1,36 +1,27 @@
 \name{tracklen}
 \alias{tracklen}
-\title{
-}
-\description{
-}
+\title{Title}
+\description{Description}
+
 \usage{
 tracklen(data, id, noid = "noid", date = "dateloc", unit = "days")
 }
+
 \arguments{
-  \item{data}{
-}
-  \item{id}{
-}
-  \item{noid}{
-}
-  \item{date}{
-}
-  \item{unit}{
-}
-}
-\details{
-}
-\value{
-}
-\references{
-}
-\author{
-}
-\note{
+  \item{data}{}
+  \item{id}{}
+  \item{noid}{}
+  \item{date}{}
+  \item{unit}{}
 }
 
-\seealso{
-}
+\value{}
+
+\author{Nicolas Casajsu}
+
+\seealso{}
+
 \examples{
+###
+### See tutorial for a complete example of usage of this package.
 }

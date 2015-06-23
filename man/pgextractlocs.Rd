@@ -2,9 +2,7 @@
 \alias{pgextractlocs}
 \title{SQL query to extract Argos locations}
 
-\description{
-
-}
+\description{Description}
 
 \usage{
 pgextractlocs(dbname, id, byid = T, start = NULL, end = NULL)
@@ -18,14 +16,11 @@ pgextractlocs(dbname, id, byid = T, start = NULL, end = NULL)
   \item{end}{}
 }
 
-\value{
-}
+\value{}
 
 \author{Nicolas Casajsu}
 
-\seealso{
-
-}
+\seealso{}
 
 \examples{
 ###

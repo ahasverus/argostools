@@ -1,28 +1,23 @@
 \name{readdiagfile}
 \alias{readdiagfile}
-\title{
-}
-\description{
-}
+\title{Title}
+\description{Description}
+
 \usage{
 readdiagfile(file)
 }
+
 \arguments{
-  \item{file}{
-}
-}
-\details{
-}
-\value{
-}
-\references{
-}
-\author{
-}
-\note{
+  \item{file}{}
 }
 
-\seealso{
-}
+\value{}
+
+\author{Nicolas Casajus}
+
+\seealso{}
+
 \examples{
+###
+### See tutorial for a complete example of usage of this package.
 }

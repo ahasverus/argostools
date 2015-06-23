@@ -1,33 +1,25 @@
 \name{pggetidbyptt}
 \alias{pggetidbyptt}
-\title{
-}
-\description{
-}
+\title{Title}
+
+\description{Description}
+
 \usage{
 pggetidbyptt(dbname, ptt)
 }
+
 \arguments{
-  \item{dbname}{
-}
-  \item{ptt}{
-}
-}
-\details{
-}
-\value{
-}
-\references{
-}
-\author{
-}
-\note{
+  \item{dbname}{}
+  \item{ptt}{}
 }
 
-\seealso{
-}
+\value{}
+
+\author{Nicolas Casajsu}
+
+\seealso{}
+
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+###
+### See tutorial for a complete example of usage of this package.
 }

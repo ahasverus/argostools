@@ -1,32 +1,25 @@
 \name{rmduplicates}
 \alias{rmduplicates}
-\title{
-}
-\description{
-}
+\title{Title}
+\description{Description}
+
 \usage{
 rmduplicates(data, noid = "platform", date = "dateloc")
 }
+
 \arguments{
-  \item{data}{
-}
-  \item{noid}{
-}
-  \item{date}{
-}
-}
-\details{
-}
-\value{
-}
-\references{
-}
-\author{
-}
-\note{
+  \item{data}{}
+  \item{noid}{}
+  \item{date}{}
 }
 
-\seealso{
-}
+\value{}
+
+\author{Nicolas Casajus}
+
+\seealso{}
+
 \examples{
+###
+### See tutorial for a complete example of usage of this package.
 }

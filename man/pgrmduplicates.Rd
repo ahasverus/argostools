@@ -1,30 +1,24 @@
 \name{pgrmduplicates}
 \alias{pgrmduplicates}
-\title{
-}
-\description{
-}
+\title{Title}
+\description{Description}
+
 \usage{
 pgrmduplicates(dbname, tbname)
 }
+
 \arguments{
-  \item{dbname}{
-}
-  \item{tbname}{
-}
-}
-\details{
-}
-\value{
-}
-\references{
-}
-\author{
-}
-\note{
+  \item{dbname}{}
+  \item{tbname}{}
 }
 
-\seealso{
-}
+\value{}
+
+\author{Nicolas Casajus}
+
+\seealso{}
+
 \examples{
+###
+### See tutorial for a complete example of usage of this package.
 }

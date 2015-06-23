@@ -1,30 +1,24 @@
 \name{pggetptts}
 \alias{pggetptts}
-\title{
-}
-\description{
-}
+\title{Title}
+\description{Description}
+
 \usage{
 pggetptts(dbname, noid = NULL)
 }
+
 \arguments{
-  \item{dbname}{
-}
-  \item{noid}{
-}
-}
-\details{
-}
-\value{
-}
-\references{
-}
-\author{
-}
-\note{
+  \item{dbname}{}
+  \item{noid}{}
 }
 
-\seealso{
-}
+\value{}
+
+\author{Nicolas Casajsu}
+
+\seealso{}
+
 \examples{
+###
+### See tutorial for a complete example of usage of this package.
 }

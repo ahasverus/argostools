@@ -1,28 +1,23 @@
 \name{stackfiles}
 \alias{stackfiles}
-\title{
-}
-\description{
-}
+\title{Title}
+\description{Description}
+
 \usage{
 stackfiles(files_list)
 }
+
 \arguments{
-  \item{files_list}{
-}
-}
-\details{
-}
-\value{
-}
-\references{
-}
-\author{
-}
-\note{
+  \item{files_list}{}
 }
 
-\seealso{
-}
+\value{}
+
+\author{Nicolas Casajsu}
+
+\seealso{}
+
 \examples{
+###
+### See tutorial for a complete example of usage of this package.
 }

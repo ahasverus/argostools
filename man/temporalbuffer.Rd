@@ -1,38 +1,28 @@
 \name{temporalbuffer}
 \alias{temporalbuffer}
-\title{
-}
-\description{
-}
+\title{Title}
+\description{Description}
+
 \usage{
 temporalbuffer(data, interval = 5, noid = "noid", date = "dateloc", qual = "quality", semmajaxis = "semmajaxis")
 }
+
 \arguments{
-  \item{data}{
-}
-  \item{interval}{
-}
-  \item{noid}{
-}
-  \item{date}{
-}
-  \item{qual}{
-}
-  \item{semmajaxis}{
-}
-}
-\details{
-}
-\value{
-}
-\references{
-}
-\author{
-}
-\note{
+  \item{data}{}
+  \item{interval}{}
+  \item{noid}{}
+  \item{date}{}
+  \item{qual}{}
+  \item{semmajaxis}{}
 }
 
-\seealso{
-}
+\value{}
+
+\author{Nicolas Casajus}
+
+\seealso{}
+
 \examples{
+###
+### See tutorial for a complete example of usage of this package.
 }

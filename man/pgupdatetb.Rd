@@ -1,34 +1,26 @@
 \name{pgupdatetb}
 \alias{pgupdatetb}
-\title{
-}
-\description{
-}
+\title{Title}
+\description{Description}
+
 \usage{
 pgupdatetb(data = NULL, dbname, tbname, fields)
 }
+
 \arguments{
-  \item{data}{
-}
-  \item{dbname}{
-}
-  \item{tbname}{
-}
-  \item{fields}{
-}
-}
-\details{
-}
-\value{
-}
-\references{
-}
-\author{
-}
-\note{
+  \item{data}{}
+  \item{dbname}{}
+  \item{tbname}{}
+  \item{fields}{}
 }
 
-\seealso{
-}
+\value{}
+
+\author{Nicolas Casajus}
+
+\seealso{}
+
 \examples{
+###
+### See tutorial for a complete example of usage of this package.
 }
