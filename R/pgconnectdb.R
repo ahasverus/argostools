@@ -1,22 +1,24 @@
-pgconnectdb <-
-function(driver = "PostgreSQL", host = "localhost", port = 5433, user, password, dbname){
-	
-	# Connexion to SQL driver
-	mycon <- dbConnect(drv = driver, host = host, port = port, user = user, password = password)
-	
-	# List of available databases
-	dbs <- dbGetQuery(mycon, "SELECT datname FROM pg_database WHERE datistemplate = false;")[,1]
-	
-	# Creation a the new database (if it does not exist)
-	if (length(which(dbs == dbname)) == 0){
-		
-		dbSendQuery(mycon, paste("CREATE DATABASE ", dbname, ";", sep = ""))
-		dbDisconnect(mycon)
-		cat("The database ", dbname, " has been successfully created.\n")
+pgconnectdb <- 
+function (driver = "PostgreSQL", host = "localhost", port = 5432, user, password, dbname){
+    
+    system('psql -lo ./tmp.txt')
+    x <- unlist(lapply(strsplit(readLines('./tmp.txt'), '\\|'), 
+        function(x) x[1]))[-c(1:3)]
 
-	}
-	cat(paste("R is now connected to ", dbname, ".\n", sep = ""))
+    if (length(grep('\\(', x)) > 0) x <- x[-grep('\\(', x)]
+    x <- x[which(!is.na(x))]
+    x <- gsub('[[:space:]]+', '', x)
+    x <- x[which(x != '')]
+    
+    system('rm ./tmp.txt')
 
-	# Return of connexion informations
-	return(dbConnect(drv = driver, host = host, port = port, user = user, password = password, dbname = dbname))
+    if (length(which(x == dbname)) == 0){
+        system(paste('createdb', dbname))
+        cat("The database", dbname, "has been successfully created.\n")
+    } else {
+    	cat("The database", dbname, "already exists.\n")
+    }
+
+    cat(paste("R is now connected to ", dbname, ".\n", sep = ""))
+    return(dbConnect(drv = driver, host = host, port = port, user = user, password = password, dbname = dbname))
 }
