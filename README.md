@@ -25,4 +25,20 @@ library(argostools)
 - `spatialbuffer()`
 - `speedfilter()`
 
-> A tutorial is being developed...
+### Read the help files
+
+```r
+## Package home page
+?argostools
+
+## List available functions in the package
+ls("package:argostools")
+
+## Open the help of a specific function
+?readargos
+
+```
+
+### Note
+
+A tutorial is being written...
