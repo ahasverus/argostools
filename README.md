@@ -1,7 +1,7 @@
-# argostools
+# argostools-package
 An R package to store and handle Argos locations
 
-### How to install?
+### How to install
 
 ```r
 ## Install the devtools package
