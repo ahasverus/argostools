@@ -1,4 +1,6 @@
-# argostools-package
+argostools <img src="inst/figures/argostools.png" height="120" align="right"/>
+=========================================================
+
 An R package to store and handle Argos locations
 
 ### How to install
