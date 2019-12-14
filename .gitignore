@@ -2,8 +2,8 @@
 .Rhistory
 .Rapp.history
 
-# Example code in package build process
-*-Ex.R
+# macOS files
+.DS_Store
 
 # RStudio files
 .Rproj.user/
