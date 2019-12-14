@@ -39,10 +39,8 @@ library(argostools)
 ls("package:argostools")
 ```
 
-Main functions:
+Main functions to be used in order:
 
-  - `read_argos()`
-  - `stack_files()`
   - `pg_extract_locs()`
   - `temporal_buffer()`
   - `spatial_buffer()`
