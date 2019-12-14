@@ -1,46 +1,51 @@
-argostools <img src="inst/figures/argostools.png" height="120" align="right"/>
-=========================================================
 
-An R package to store and handle Argos locations
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-### How to install
+# argostools <img src="inst/figures/argostools.png" height="120" align="right"/>
 
-```r
-## Install the devtools package
-install.packages("devtools")
+<!-- badges: start -->
 
-## Load the devtools package
-library(devtools)
+[![Travis build
+status](https://travis-ci.org/ahasverus/argostools.svg?branch=master)](https://travis-ci.org/ahasverus/argostools)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/ahasverus/argostools?branch=master&svg=true)](https://ci.appveyor.com/project/ahasverus/argostools)
+[![Project Status:
+Stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://zenodo.org/badge/37935776.svg)](https://zenodo.org/badge/latestdoi/37935776)
+<!-- badges: end -->
 
-## Install the argostools package directly from Github
-devtools::install_github("ahasverus/argostools")
+This package provides functions to import (xls(x), txt, csv and diag
+extensions) and format Argos data (coordinates and date fields). Some
+filters are also available (spatial, temporal and speed-based filters)
+to clean up locations. After compilation, data can be passed under an
+SQL structure using several functions (database creation, relation
+update, extraction queries, etc.)
 
-## Load the argostools package
+## Installation
+
+You can install the dev version of argostools from
+[GitHub](https://github.com/ahasverus/argostools) with:
+
+``` r
+devtools::install_github("ahasverus/argostools", build_vignettes = TRUE)
+```
+
+## Getting started
+
+``` r
 library(argostools)
-
-```
-
-### Main functions
-- `readargos()`
-- `stackfiles()`
-- `temporalbuffer()`
-- `spatialbuffer()`
-- `speedfilter()`
-
-### Read the help files
-
-```r
-## Package home page
-?argostools
-
-## List available functions in the package
 ls("package:argostools")
-
-## Open the help of a specific function
-?readargos
-
 ```
 
-### Note
+Main functions:
 
-A tutorial is being written...
+  - `read_argos()`
+  - `stack_files()`
+  - `pg_extract_locs()`
+  - `temporal_buffer()`
+  - `spatial_buffer()`
+  - `speed_filter()`
+
+Enjoy\!
