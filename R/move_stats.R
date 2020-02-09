@@ -6,5 +6,9 @@ move_stats <- function(data, long = "longitude", lat = "latitude", date = "datel
 	len <- round(difftime(data[2, date], data[1, date],units = "mins")[[1]], 2)
 	spd <- round(60 * dst/len, 2)
 
+	if (is.na(spd)){
+
+		spd <- 0
+	}
 	return(list(Dist = dst, Duration = len, Speed = spd))
 }

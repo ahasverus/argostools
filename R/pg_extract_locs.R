@@ -2,8 +2,7 @@
 #' @description Get Argos locations for one or several animals from a PostgreSQL database.
 #'
 #' @param dbname A DBI connexion information
-#' @param id Animal ID
-#' @param byid TRUE or FALSE
+#' @param id Animal ID (not PTT)
 #' @param start Minimum location date
 #' @param end Maximum location date
 #'
@@ -18,122 +17,160 @@
 #' ## See vignette
 #'
 
-pg_extract_locs <- function(dbname, id, byid = TRUE, start = NULL, end = NULL) {
+pg_extract_locs <- function(dbname, id = NULL, start = NULL, end = NULL) {
 
-	if (!is.null(start) && is.null(end))
+	if (!is.null(start) && is.null(end)) {
+
 		end <- as.character(substr(Sys.time(), 1, 10))
+	}
 
-	if (!is.null(start) && !is.null(end) && (as.Date(start) > as.Date(end)))
+	if (is.null(start) && !is.null(end)) {
+
+		start <- "1900-01-01"
+	}
+
+	if (!is.null(start) && !is.null(end) && (as.Date(start) > as.Date(end))) {
+
 		stop("Starting date has to be lower than ending date.")
+	}
+
+	if (is.null(id)) {
+
+		query <- paste0(
+			"SELECT",
+			" code_couleur ",
+			"FROM",
+			" argos_id_colliers "
+		)
+		id   <- DBI::dbGetQuery(dbname, query)[ , "code_couleur"]
+	}
+
 
 
 	locs <- data.frame()
 
 	for (k in 1:length(id)) {
 
-		if (byid) {
+		cat("\rExtracting raw locations for:", id[k], "     ")
 
-			query <- paste("SELECT * FROM foxnoids WHERE noid = '", id[k], "';", sep = "")
-			ids <- DBI::dbGetQuery(dbname, query)
+		query <- paste0(
+			"SELECT",
+			" * ",
+			"FROM",
+			" argos_id_colliers ",
+			"WHERE",
+			" code_couleur = ",
+			"'",
+			id[k],
+			"'"
+		)
+		ids   <- DBI::dbGetQuery(dbname, query)
 
-			if (nrow(ids) == 0)
-				stop(paste("The id #", id[k], " is absent from the database.\nIf you are looking for a ptt, please unselect byid.", sep = ""))
 
-			for (j in 2:ncol(ids)) {
+		if (nrow(ids) == 0) {
 
-				ptt <- ids[1, j]
+			stop(paste0("The id #", id[k], " is absent from the database."))
+		}
 
-				if (!is.na(ptt)) {
 
-					query <- paste("SELECT * FROM pttinfos WHERE pttuser = '", ptt, "';", sep = "")
-					ptts <- DBI::dbGetQuery(dbname, query)
+		for (j in 1:5) {
 
-					if (is.null(start) && is.null(end)) {
+			ptt <- ids[1, paste0("ptt_user_", j)]
 
-						if (!is.na(ptts[1, "trackingend"])) {
+			if (!is.na(ptt)) {
 
-							query <- paste("SELECT * FROM locations WHERE ",
-								"platform = '", ptts[1, "pttcls"], "' AND ",
-								"dateloc >= '", ptts[1, "trackingstart"], "' AND ",
-								"dateloc <= '", ptts[1, "trackingend"], "';", sep = "")
+				query <- paste0(
+					"SELECT",
+					" * ",
+					"FROM",
+					" argos_periode_suivi ",
+					"WHERE",
+					" ptt_user = ",
+					"'",
+					ptt,
+					"'"
+				)
+				ptts <- DBI::dbGetQuery(dbname, query)
 
-						} else {
+				if (is.null(start) && is.null(end)) {
 
-							query <- paste("SELECT * FROM locations WHERE ",
-								"platform = '", ptts[1, "pttcls"], "' AND ",
-								"dateloc >= '", ptts[1, "trackingstart"], "';", sep = "")
-						}
+					if (!is.na(ptts[1, "date_fin_suivi"])) {
 
-					} else {
-
-						query <- paste("SELECT * FROM locations WHERE ",
-								"platform = '", ptts[1, "pttcls"], "' AND ",
-								"dateloc >= '", start, "' AND ",
-								"dateloc <= '", end, "';", sep = "")
-					}
-
-					res <- DBI::dbGetQuery(dbname, query)
-					res <- data.frame(noid = rep(id[k], nrow(res)), res)
-					locs <- rbind(locs, res)
-				}
-			}
-
-		} else {
-
-			query <- paste("SELECT * FROM pttinfos WHERE pttuser = '", id[k], "';", sep = "")
-			ptts <- DBI::dbGetQuery(dbname, query)
-
-			if (nrow(ptts) == 0)
-				stop(paste("The ptt #", id[k], " is absent from the database.\nIf you are looking for a fox id, please select byid.", sep = ""))
-
-			query <- paste(
-				"SELECT noid FROM foxnoids WHERE ",
-				"pttuser_1 = '", ptts[1, "pttuser"], "' OR ",
-				"pttuser_2 = '", ptts[1, "pttuser"], "' OR ",
-				"pttuser_3 = '", ptts[1, "pttuser"], "';",
-				sep = ""
-			)
-
-			noid <- DBI::dbGetQuery(dbname, query)[1, 1]
-
-			if (is.null(start) && is.null(end)) {
-
-					if (!is.na(ptts[1, "trackingend"])) {
-
-						query <- paste(
-							"SELECT * FROM locations WHERE ",
-							"platform = '", ptts[1, "pttcls"], "' AND ",
-							"dateloc >= '", ptts[1, "trackingstart"], "' AND ",
-							"dateloc <= '", ptts[1, "trackingend"], "';",
-							sep = ""
+						query <- paste0(
+							"SELECT",
+							" * ",
+							"FROM",
+							" argos_localisations ",
+							"WHERE",
+							" platform = ",
+							"'",
+							ptts[1, "ptt_cls"],
+							"'",
+							" AND",
+							" dateloc >= ",
+							"'",
+							ptts[1, "date_debut_suivi"],
+							"'",
+							" AND",
+							" dateloc <= ",
+							"'",
+							ptts[1, "date_fin_suivi"],
+							"'"
 						)
 
 					} else {
 
-						query <- paste(
-							"SELECT * FROM locations WHERE ",
-							"platform = '", ptts[1, "pttcls"], "' AND ",
-							"dateloc >= '", ptts[1, "trackingstart"], "';",
-							sep = ""
+						query <- paste0(
+							"SELECT",
+							" * ",
+							"FROM",
+							" argos_localisations ",
+							"WHERE",
+							" platform = ",
+							"'",
+							ptts[1, "ptt_cls"],
+							"'",
+							" AND",
+							" dateloc >= ",
+							"'",
+							ptts[1, "date_debut_suivi"],
+							"'"
 						)
 					}
 
 				} else {
 
-					query <- paste(
-						"SELECT * FROM locations WHERE ",
-						"platform = '", ptts[1, "pttcls"], "' AND ",
-						"dateloc >= '", start, "' AND ",
-						"dateloc <= '", end, "';",
-						sep = ""
+					query <- paste0(
+						"SELECT",
+						" * ",
+						"FROM",
+						" argos_localisations ",
+						"WHERE",
+						" platform = ",
+						"'",
+						ptts[1, "ptt_cls"],
+						"'",
+						" AND",
+						" dateloc >= ",
+						"'",
+						start,
+						"'",
+						" AND",
+						" dateloc <= ",
+						"'",
+						end,
+						"'"
 					)
 				}
 
 				res <- DBI::dbGetQuery(dbname, query)
-				res <- data.frame(noid = rep(noid, nrow(res)), res)
+				res <- data.frame(code_couleur = rep(id[k], nrow(res)), res)
 				locs <- rbind(locs, res)
+			}
 		}
 	}
+
+	cat("\n")
 
 	rownames(locs) <- NULL
 	return(locs)

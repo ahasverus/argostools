@@ -4,14 +4,12 @@
 \alias{pg_extract_locs}
 \title{Get Argos locations}
 \usage{
-pg_extract_locs(dbname, id, byid = TRUE, start = NULL, end = NULL)
+pg_extract_locs(dbname, id = NULL, start = NULL, end = NULL)
 }
 \arguments{
 \item{dbname}{A DBI connexion information}
 
-\item{id}{Animal ID}
-
-\item{byid}{TRUE or FALSE}
+\item{id}{Animal ID (not PTT)}
 
 \item{start}{Minimum location date}
 

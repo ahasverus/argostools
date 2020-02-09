@@ -36,6 +36,8 @@ speed_filter <- function(data, selqual = c(0, 1, 2, 3), speed1 = 7, speed2 = 10,
 
 	for (j in 1 : length(ids)) {
 
+		print(paste("Filtering ",ids[j], "...", sep = ""))
+
 		tab <- data[data[ , noid] == ids[j], ]
 
 		if (!is.null(selqual)) tab <- tab[tab[ , qual] %in% selqual, ]
