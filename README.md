@@ -29,7 +29,7 @@ You can install the dev version of argostools from
 [GitHub](https://github.com/ahasverus/argostools) with:
 
 ``` r
-devtools::install_github("ahasverus/argostools", build_vignettes = TRUE)
+devtools::install_github("ahasverus/argostools")
 ```
 
 ## Getting started
